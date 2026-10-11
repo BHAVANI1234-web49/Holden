@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { getCurrentUser } from "./api";
 
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -14,6 +15,8 @@ import Navbar from "./components/Navbar";
 import "./App.css";
 
 function Home() {
+  const user = getCurrentUser();
+
   return (
     <div className="home-page">
       <Navbar />
@@ -34,13 +37,27 @@ function Home() {
           </p>
 
           <div className="hero-buttons">
-            <Link to="/register" className="primary-button">
-              Get Started Free
-            </Link>
+            {user ? (
+              <>
+                <Link to="/dashboard" className="primary-button">
+                  Go to Dashboard →
+                </Link>
 
-            <Link to="/login" className="secondary-button">
-              Login to Holden
-            </Link>
+                <Link to="/certificates" className="secondary-button">
+                  My Certificates
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link to="/register" className="primary-button">
+                  Get Started Free
+                </Link>
+
+                <Link to="/login" className="secondary-button">
+                  Login to Holden
+                </Link>
+              </>
+            )}
           </div>
         </div>
 
