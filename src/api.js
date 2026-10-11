@@ -1,6 +1,10 @@
 import axios from "axios";
 
-const API_BASE_URL = "https://holden-backend.onrender.com/api";
+const API_BASE_URL =
+  typeof window !== "undefined" &&
+  (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")
+    ? "http://localhost:8080/api"
+    : "https://holden-backend.onrender.com/api";
 
 const api = axios.create({
   baseURL: API_BASE_URL,
