@@ -37,27 +37,13 @@ function Home() {
           </p>
 
           <div className="hero-buttons">
-            {user ? (
-              <>
-                <Link to="/dashboard" className="primary-button">
-                  Go to Dashboard →
-                </Link>
+            <Link to="/register" className="primary-button">
+              Get Started Free
+            </Link>
 
-                <Link to="/certificates" className="secondary-button">
-                  My Certificates
-                </Link>
-              </>
-            ) : (
-              <>
-                <Link to="/register" className="primary-button">
-                  Get Started Free
-                </Link>
-
-                <Link to="/login" className="secondary-button">
-                  Login to Holden
-                </Link>
-              </>
-            )}
+            <Link to="/login" className="secondary-button">
+              Login to Holden
+            </Link>
           </div>
         </div>
 
